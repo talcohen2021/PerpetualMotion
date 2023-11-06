@@ -1,5 +1,7 @@
 # PerpetualMotion
 Card game gui in Python using tkinter
+This is an old project from before I started formal learning for computer science, right know I'm in the process of tidying and refactoring.
+
 
 Objective: to get the cards from 2-10 in order per suit from left to right
 Rules: 
