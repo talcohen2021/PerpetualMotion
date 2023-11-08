@@ -5,6 +5,8 @@ import os
 import time
 import math
 
+cwd = os.getcwd()
+
 cards=['AC','2C','3C','4C','5C','6C','7C','8C','9C','10C','AD','2D','3D','4D','5D','6D','7D','8D','9D','10D',
 'AS','2S','3S','4S','5S','6S','7S','8S','9S','10S','AH','2H','3H','4H','5H','6H','7H','8H','9H','10H']
 cardsl=[0]*40
@@ -26,7 +28,7 @@ mainw.configure(bg='green')
 class card() :
    def __init__(self, i) :
        self.name=cards[i]
-       self.im1=tk.PhotoImage(file=self.name+".gif")
+       self.im1=tk.PhotoImage(file=cwd + "/Images/Cards/" +self.name+".gif")
        self.button=tk.Button(mainw, image=self.im1, command=lambda x=i: swap(x))
        self.button.image=self.im1
        self.suit=i//10+1
@@ -86,7 +88,7 @@ def shuffle(x) :
 
 def acefb() :
     for i in range(0,40,10) :
-        cardsl[i].im1=tk.PhotoImage(file="Green_back.gif")
+        cardsl[i].im1=tk.PhotoImage(file=cwd +"/Images/Cards/Green_back.gif")
         cardsl[i].button.image=cardsl[i].im1
         cardsl[i].button.configure(image=cardsl[i].im1)
     return()
@@ -94,7 +96,7 @@ def acefb() :
 def aceff() :
     for i in range(0,40,10) :
         im=cardsl[i].name
-        cardsl[i].im1=tk.PhotoImage(file=im+".gif")
+        cardsl[i].im1=tk.PhotoImage(file=cwd +"/Images/Cards/" +im+".gif")
         cardsl[i].button.image=cardsl[i].im1
         cardsl[i].button.configure(image=cardsl[i].im1)
 
@@ -340,22 +342,22 @@ def redo() :
 frm1=tk.Frame(mainw, bg="green", width=600, height=700)
 frm1.grid(row=6, column=0, columnspan=14, pady=100, sticky='swse')
 
-imundo=tk.PhotoImage(file="undo.gif")
+imundo=tk.PhotoImage(file=cwd + "/Images/undo.gif")
 butundo=tk.Button(frm1, text="Undo", image=imundo, compound="bottom", command=lambda : undo())
 butundo.image=imundo
 butundo.pack(anchor=tk.SW, side=tk.LEFT, padx=20)
 
-imredo=tk.PhotoImage(file="redo.gif")
+imredo=tk.PhotoImage(file=cwd + "/Images/redo.gif")
 butredo=tk.Button(frm1, text="Redo", image=imredo, compound="bottom", command=lambda : redo())
 butredo.image=imredo
 butredo.pack(anchor=tk.SW, side=tk.LEFT, padx=20)
 
-imbutshuf=tk.PhotoImage(file="back_cards-07.gif")
+imbutshuf=tk.PhotoImage(file=cwd + "/Images/shuffle.gif")
 butshuf=tk.Button(frm1, text="Shuffle", image=imbutshuf, compound="bottom", command=lambda : do_shuffle())
 butshuf.image=imbutshuf
 butshuf.pack(anchor=tk.SW, side=tk.LEFT, padx=20)
 
-imngame=tk.PhotoImage(file="newgame.gif")
+imngame=tk.PhotoImage(file=cwd + "/Images/newgame.gif")
 ngame=tk.Button(frm1, text="New Game", image=imngame, compound="bottom", command=lambda : start_n_game())
 ngame.image=imngame
 ngame.pack(anchor=tk.SW, side=tk.LEFT, padx=20)
